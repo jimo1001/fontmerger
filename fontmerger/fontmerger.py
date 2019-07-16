@@ -90,7 +90,7 @@ def display_unicode_utf8(ctx, fd=sys.stdout):
     line = ''
     fd.write('{0:-^80}\n'.format(' ' + ctx.id + ' '))
     for glyph in list(font.selection.byGlyphs):
-        line += unichr(glyph.encoding + delta)
+        line += chr(glyph.encoding + delta)
         info = get_glyph_size_info(glyph)
         if info.width <= font.em / 2:
             # half width

@@ -24,7 +24,7 @@ def show_font_details(font):
         if name == 'sfnt_names':
             for locale, _name, _value in value:
                 print('{0:>32}: {1} = {2}'.format(locale, _name, _value))
-        if type(value) in (types.IntType, types.FloatType,) + types.StringTypes:
+        if type(value) in (int, float, str, None):
             print('{0:>32}: {1}'.format(name, value))
 
 
@@ -101,7 +101,7 @@ def main():
             filename = merger.generate(args.outputdir)
             merger.close()
             log.info('"%s" generated.', filename)
-        except Exception, e:
+        except Exception as e:
             if args.debug:
                 traceback.print_exc(file=sys.stdout)
             else:
